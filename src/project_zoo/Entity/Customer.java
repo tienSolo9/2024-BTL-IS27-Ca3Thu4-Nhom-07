@@ -7,6 +7,10 @@ public class Customer extends Person{
 	private String entryDate;
 	private String type;
 	private Double price;
+	
+	public Customer() {
+		super();
+	}
 	public Customer(String name, String phone, String dateOfBirth, int id, String gender, String entryDate, String type) {
 		super(name, phone, dateOfBirth,gender);
 		this.id = id;

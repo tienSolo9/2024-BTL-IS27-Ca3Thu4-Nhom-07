@@ -55,10 +55,22 @@ public class EmployeeQuery {
 			System.out.println(sql);
 	}
 	
-	public static List<Employee> getListEmployee() throws SQLException{
-		StringBuilder sql = new StringBuilder("Select * From employee");
+	public static List<Employee> getListEmployee(Employee data) throws SQLException{
+		StringBuilder sql = new StringBuilder("Select * From employee where 1");
 		List<Employee> result = new ArrayList<>();
-
+		
+		if(data.getName() != null) {
+			sql.append(" and " + "name like '%"  + data.getName() + "%'");
+		}
+		if(data.getPhone() != null) {
+			sql.append(" and " + "phone like '%"  + data.getPhone() + "%'");
+		}
+		if(data.getShift() != null) {
+			sql.append(" and " + "shift like '%"  + data.getShift() + "%'");
+		}
+		if(data.getDesignation() != null) {
+			sql.append(" and " + "designation like '%"  + data.getDesignation() + "%'");
+		}
 			Connection conn = connectSql.getConnection();
 			Statement st = conn.createStatement();
 			ResultSet rs = st.executeQuery(sql.toString());

@@ -170,21 +170,14 @@ public class AnimalDietAddForm extends javax.swing.JFrame {
 			AnimalDietQuery.add(a);
 			
 			JOptionPane.showMessageDialog(this, "Thêm thành công");
-			AnimalDietForm b = new AnimalDietForm();
 			this.dispose();
-			b.setVisible(true);
 		} catch (SQLException e) {
 			JOptionPane.showMessageDialog(this, "Thêm thất bại");
-			this.dispose();
-			AnimalDietForm b = new AnimalDietForm();
-			b.setVisible(true);
 			e.printStackTrace();
 		}
     }                                        
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {                                         
-        AnimalDietForm a = new AnimalDietForm();
-        a.setVisible(true);
         this.dispose();
     }                                        
 

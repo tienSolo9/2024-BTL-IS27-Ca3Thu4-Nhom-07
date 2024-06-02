@@ -51,7 +51,7 @@ public class AnimalHealUpdateForm extends javax.swing.JFrame {
         jTextField6 = new javax.swing.JTextField();
         jComboBox1 = new javax.swing.JComboBox<>();
         jComboBox2 = new javax.swing.JComboBox<>();
-
+        jTextField3.setEnabled(false);
         try {
 			List<Animal> listE = AnimalQuery.getListAnimal(new Animal());
 			List<String> option = new ArrayList<>();
@@ -61,7 +61,7 @@ public class AnimalHealUpdateForm extends javax.swing.JFrame {
 			DefaultComboBoxModel<String> model = new DefaultComboBoxModel<>(option.toArray(new String[0]));
 			jComboBox1 = new JComboBox<>(model);
 			
-			List<Employee> listEE = EmployeeQuery.getListEmployee();
+			List<Employee> listEE = EmployeeQuery.getListEmployee(new Employee());
 			option = new ArrayList<>();
 			for(Employee x : listEE) {
 				if(x.getDesignation().equals("Bác sĩ")) {
@@ -190,16 +190,11 @@ public class AnimalHealUpdateForm extends javax.swing.JFrame {
     				Integer.parseInt(jComboBox2.getSelectedItem().toString()), 
         			jTextField3.getText(), jTextField4.getText(), jTextField5.getText());
 			AnimalHealthQuery.update(a);
-			JOptionPane.showMessageDialog(this, "Cập nhật thành công");
-			AnimalHealForm b = new AnimalHealForm();
-			b.setVisible(true);
+			JOptionPane.showMessageDialog(this, "Cập nhật thành công");;
 			this.dispose();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			JOptionPane.showMessageDialog(this, "Cập nhật thất bại");
-			this.dispose();
-			AnimalHealForm b = new AnimalHealForm();
-			b.setVisible(true);
 			e.printStackTrace();
 		}
     }                                        
@@ -213,8 +208,7 @@ public class AnimalHealUpdateForm extends javax.swing.JFrame {
     }                                           
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {                                         
-        AnimalHealForm a=  new AnimalHealForm();
-        a.setVisible(true);
+
         this.dispose();
     }                                        
 

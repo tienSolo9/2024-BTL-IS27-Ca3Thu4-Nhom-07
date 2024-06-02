@@ -188,15 +188,10 @@ public class AnimalDietUpdateForm extends javax.swing.JFrame {
         	AnimalDiet data = new AnimalDiet(Integer.parseInt(jTextField5.getText()), Integer.parseInt(jComboBox1.getSelectedItem().toString()), jTextField2.getText(),
             		jTextField3.getText(),jTextField4.getText());
 			AnimalDietQuery.update(data);
-			JOptionPane.showMessageDialog(this, "Cập nhật thành công");
-			AnimalDietForm b = new AnimalDietForm();
-			b.setVisible(true);
+			JOptionPane.showMessageDialog(this, "Cập nhật thành công");;
 			this.dispose();
 		} catch (SQLException e) {
 			JOptionPane.showMessageDialog(this, "Cập nhật thất bại");
-			this.dispose();
-			AnimalDietForm b = new AnimalDietForm();
-			b.setVisible(true);
 			e.printStackTrace();
 		}
     }                                        
@@ -206,8 +201,7 @@ public class AnimalDietUpdateForm extends javax.swing.JFrame {
     }                                           
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {                                         
-        AnimalDietForm a = new AnimalDietForm();
-        a.setVisible(true);
+
         this.dispose();
     }                                        
 

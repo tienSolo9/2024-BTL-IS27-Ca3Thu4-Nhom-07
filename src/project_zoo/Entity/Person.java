@@ -8,7 +8,9 @@ public class Person {
 	private String dateOfBirth;
 	private String gender;
 	
-
+	public Person() {
+		
+	}
 	public Person(String name, String phone, String dateOfBirth, String gender) {
 		this.name = name;
 		this.phone = phone;

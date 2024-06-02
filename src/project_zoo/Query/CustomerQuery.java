@@ -1,5 +1,6 @@
 package project_zoo.Query;
 
+import java.lang.reflect.Field;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -7,6 +8,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+import project_zoo.Entity.Animal;
 import project_zoo.Entity.Customer;
 import project_zoo.Utils.connectSql;
 
@@ -53,10 +55,22 @@ public class CustomerQuery {
         System.out.println(sql);
     }
 
-    public static List<Customer> getListCustomer() throws SQLException {
-        StringBuilder sql = new StringBuilder("select * from customer");
+    public static List<Customer> getListCustomer(Customer data) throws SQLException {
+        StringBuilder sql = new StringBuilder("select * from customer where 1");
         List<Customer> result = new ArrayList<>();
-
+        
+		if(data.getName() != null) {
+			sql.append(" and " + "name like '%"  + data.getName() + "%'");
+		}
+		if(data.getGender() != null) {
+			sql.append(" and " + "gender like '%"  + data.getGender() + "%'");
+		}
+		if(data.getPhone() != null) {
+			sql.append(" and " + "phone like '%"  + data.getPhone() + "%'");
+		}
+		if(data.getDateOfBirth() != null) {
+			sql.append(" and " + "dateofbirth like '%"  + data.getDateOfBirth() + "%'");
+		}
         Connection conn = connectSql.getConnection();
         Statement st = conn.createStatement();
         ResultSet rs = st.executeQuery(sql.toString());

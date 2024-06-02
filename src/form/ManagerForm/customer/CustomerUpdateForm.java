@@ -206,6 +206,7 @@ public class CustomerUpdateForm extends javax.swing.JFrame {
         	CustomerForm l = new CustomerForm();
 			CustomerQuery.update(data);
 			JOptionPane.showMessageDialog(this, "Cập nhật thành công");
+			this.dispose();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			JOptionPane.showMessageDialog(this, "Cập nhật thất bại");
@@ -215,9 +216,7 @@ public class CustomerUpdateForm extends javax.swing.JFrame {
 			JOptionPane.showMessageDialog(this, "Cập nhật thất bại");
 			e.printStackTrace();
 		}
-    	CustomerForm l = new CustomerForm();
-        l.setVisible(true);
-        this.dispose();
+        
     }                                        
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {            

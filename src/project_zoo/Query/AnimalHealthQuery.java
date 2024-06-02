@@ -13,10 +13,9 @@ import project_zoo.Utils.connectSql;
 
 public class AnimalHealthQuery {
     public static void add(AnimalHealth data) throws SQLException {
-        StringBuilder sql = new StringBuilder("insert into animal_health(animalId, doctorId, dateOfCheckup, disease, medicine) values (");
+        StringBuilder sql = new StringBuilder("insert into animal_health(animalId, doctorId, disease, medicine) values (");
         sql.append(data.getAnimalId() + ", ");
         sql.append(data.getDoctorId() + ", ");
-        sql.append("'" + data.getDateOfCheckup() + "'" + ", ");
         sql.append("'" + data.getDisease() + "'" + ", ");
         sql.append("'" + data.getMedicine() + "'" + ")");
 
@@ -40,7 +39,6 @@ public class AnimalHealthQuery {
         StringBuilder sql = new StringBuilder("update animal_health set ");
         sql.append("animalId = " + data.getAnimalId() + ", ");
         sql.append("doctorId = " + data.getDoctorId() + ", ");
-        sql.append("dateOfCheckup = " + "'" + data.getDateOfCheckup() + "'" + ", ");
         sql.append("disease = " + "'" + data.getDisease() + "'" + ", ");
         sql.append("medicine = " + "'" + data.getMedicine() + "'");
 

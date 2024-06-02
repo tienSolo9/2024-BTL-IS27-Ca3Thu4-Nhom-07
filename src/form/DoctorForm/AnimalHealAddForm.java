@@ -49,7 +49,7 @@ public class AnimalHealAddForm extends javax.swing.JFrame {
         jButton3 = new javax.swing.JButton();
         jComboBox1 = new javax.swing.JComboBox<>();
         jComboBox2 = new javax.swing.JComboBox<>();
-
+        jTextField3.setEnabled(false);
         try {
 			List<Animal> listE = AnimalQuery.getListAnimal(new Animal());
 			List<String> option = new ArrayList<>();
@@ -59,7 +59,7 @@ public class AnimalHealAddForm extends javax.swing.JFrame {
 			DefaultComboBoxModel<String> model = new DefaultComboBoxModel<>(option.toArray(new String[0]));
 			jComboBox1 = new JComboBox<>(model);
 			
-			List<Employee> listEE = EmployeeQuery.getListEmployee();
+			List<Employee> listEE = EmployeeQuery.getListEmployee(new Employee());
 			option = new ArrayList<>();
 			for(Employee x : listEE) {
 				if(x.getDesignation().equals("Bác sĩ")) {
@@ -84,7 +84,6 @@ public class AnimalHealAddForm extends javax.swing.JFrame {
         jLabel1.setText("Mã động vật");
 
         jLabel2.setText("Ngày kiểm tra");
-
         jLabel3.setText("Mã bác sĩ");
 
         jLabel4.setText("Tên bệnh");
@@ -185,29 +184,18 @@ public class AnimalHealAddForm extends javax.swing.JFrame {
 			AnimalHealthQuery.add(a);
 			
 			JOptionPane.showMessageDialog(this, "Thêm thành công");
-			AnimalHealForm b = new AnimalHealForm();
-			this.dispose();
-			b.setVisible(true);
-			
+			this.dispose();			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			JOptionPane.showMessageDialog(this, "Thêm thất bại");
-			this.dispose();
-			AnimalHealForm b = new AnimalHealForm();
-			b.setVisible(true);
 			e.printStackTrace();
 		} catch(Exception e) {
 			JOptionPane.showMessageDialog(this, "Thêm thất bại");
-			this.dispose();
-			AnimalHealForm b = new AnimalHealForm();
-			b.setVisible(true);
 			e.printStackTrace();
 		}
     }                                        
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {                                         
-        AnimalHealForm a=  new AnimalHealForm();
-        a.setVisible(true);
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {                                         ;
         this.dispose();
     }                                        
 
