@@ -115,7 +115,7 @@ public class EmployeeUpdateForm extends javax.swing.JFrame {
 
         jLabel6.setText("Chức vụ");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Quản lí", "Nhân viên", "Bác sĩ" }));
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Quản lí", "Nhân viên", "Bác sĩ", "Thu ngân"}));
 
         jLabel5.setText("Tên");
 

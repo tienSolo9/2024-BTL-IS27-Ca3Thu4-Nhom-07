@@ -243,7 +243,7 @@ public class CustomerForm extends javax.swing.JFrame {
     		return;
     	}
         int result = JOptionPane.showOptionDialog(this,
-                "Bạn có chắc muốn xóa nhân viên này",
+                "Bạn có chắc muốn xóa khách hàng này",
                 "Xác nhận",
                 JOptionPane.YES_NO_CANCEL_OPTION,
                 JOptionPane.QUESTION_MESSAGE,

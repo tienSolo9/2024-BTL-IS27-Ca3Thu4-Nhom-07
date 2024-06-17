@@ -8,6 +8,7 @@ import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
 
 import form.ManagerForm.employee.EmployeeForm;
+import project_zoo.Entity.Animal;
 import project_zoo.Entity.AnimalDiet;
 import project_zoo.Entity.AnimalHealth;
 import project_zoo.Query.AnimalDietQuery;
@@ -68,12 +69,24 @@ public class AnimalHealForm extends javax.swing.JFrame {
             }
         ));
         DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+       
         try {
 			listAd = AnimalHealthQuery.getListAnimalHealth();
+			List<Animal> animals = AnimalQuery.getListAnimal(new Animal());
+			
 			for(AnimalHealth x : listAd) {
-				model.addRow(new Object[] {x.getId(), x.getAnimalId(), x.getDoctorId(), x.getDateOfCheckup(), x.getDisease(), x.getMedicine()});
+				String name="";
+				for(Animal it: animals) {
+					if(it.getId() == x.getAnimalId()) {
+						name = it.getName();
+					}
+				}
+				model.addRow(new Object[] {x.getId(),name, x.getDoctorId(), x.getDateOfCheckup(), x.getDisease(), x.getMedicine()});
 			}
 		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}

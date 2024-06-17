@@ -49,7 +49,6 @@ public class AnimalQuery {
 			
 	}
 
-	
 	public static List<Animal> getListAnimal(Animal data) throws Exception {
 		StringBuilder sql = new StringBuilder("Select * From animal where 1");
 		List<Animal> result = new ArrayList<>();
@@ -110,19 +109,5 @@ public class AnimalQuery {
 		
 		return result;
 	}
-	public static void main(String[] args) {
-		Animal data = new Animal();
-		data.setName("");
-		data.setEnclosureid(10);
-		try {
-			List<Animal> list = getListAnimal(data);
-			for(Animal x : list) {
-				System.out.println(x);
-			}
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
 
-	}
 }

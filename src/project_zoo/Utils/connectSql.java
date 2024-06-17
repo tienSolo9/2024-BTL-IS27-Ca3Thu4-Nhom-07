@@ -5,7 +5,7 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class connectSql {
-	static final String DB_URL = "jdbc:mysql://localhost:3306/zoo";
+	static final String DB_URL = "jdbc:mysql://localhost:3306/zoos";
 	static final String USER = "root";
 	static final String PASS = "hvnh2004";
 	

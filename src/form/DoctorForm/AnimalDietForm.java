@@ -8,8 +8,10 @@ import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
 
 import form.ManagerForm.animal.AnimalForm;
+import project_zoo.Entity.Animal;
 import project_zoo.Entity.AnimalDiet;
 import project_zoo.Query.AnimalDietQuery;
+import project_zoo.Query.AnimalQuery;
 
 public class AnimalDietForm extends javax.swing.JFrame {
 
@@ -78,6 +80,7 @@ public class AnimalDietForm extends javax.swing.JFrame {
                 jButton5ActionPerformed(evt);
             }
         });
+        
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
             },
@@ -88,10 +91,20 @@ public class AnimalDietForm extends javax.swing.JFrame {
         DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
         try {
 			listAd = AnimalDietQuery.getListAnimalDiet();
+			List<Animal> animals = AnimalQuery.getListAnimal(new Animal());
 			for(AnimalDiet x : listAd) {
-				model.addRow(new Object[] {x.getId(), x.getAnimalId(), x.getBreakfast(), x.getLunch(), x.getDinner()});
+				String name="";
+				for(Animal it: animals) {
+					if(it.getId() == x.getAnimalId()) {
+						name = it.getName();
+					}
+				}
+				model.addRow(new Object[] {x.getId(), name, x.getBreakfast(), x.getLunch(), x.getDinner()});
 			}
 		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}

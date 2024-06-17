@@ -13,7 +13,7 @@ public class Animal{
 		
 	}
 	
-	
+
 	public Animal(int id, int enclosureid, String gender, String name, String source, String category,
 			String dateOfBirth) {
 		super();
