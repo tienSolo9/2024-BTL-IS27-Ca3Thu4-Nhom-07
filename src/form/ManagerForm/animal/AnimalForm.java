@@ -334,16 +334,7 @@ public class AnimalForm extends javax.swing.JFrame {
 			JOptionPane.showMessageDialog(this, "Thêm thành công");
 			
             DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
-            try {
-            	listA = AnimalQuery.getListAnimal(new Animal());
-            	((DefaultTableModel)jTable1.getModel()).setRowCount(0);
-            	for(Animal x : listA) {
-            		model.addRow(new Object[] {x.getId(), x.getName(), x.getGender(), x.getSource(), x.getCategory(),
-            				x.getDateOfBirth(), x.getEnclosureid()});
-            	}
-            }catch(Exception ex) {
-            	ex.printStackTrace();
-            }
+            refresh();
 		} catch (Exception e) {
 			JOptionPane.showMessageDialog(this, "Thêm thất bại");
 			e.printStackTrace();
@@ -384,6 +375,7 @@ public class AnimalForm extends javax.swing.JFrame {
         		AnimalDietQuery.delete(id, "animalid");
         		AnimalQuery.delete(id,"id");
         		JOptionPane.showMessageDialog(this, "Xóa thành công");
+        		refresh();
         	}catch(Exception e) {
         		JOptionPane.showMessageDialog(this, "Xóa thất bại");
         		e.printStackTrace();
@@ -392,6 +384,9 @@ public class AnimalForm extends javax.swing.JFrame {
     }                                        
 
     private void search2ActionPerformed(java.awt.event.ActionEvent evt) {                                        
+    	refresh();
+    }       
+    public void refresh() {
         DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
         try {
         	listA = AnimalQuery.getListAnimal(new Animal());
@@ -403,7 +398,7 @@ public class AnimalForm extends javax.swing.JFrame {
         }catch(Exception ex) {
         	ex.printStackTrace();
         }
-    }       
+    }
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {                                         
         ManagerForm a = new ManagerForm();
         a.setVisible(true);

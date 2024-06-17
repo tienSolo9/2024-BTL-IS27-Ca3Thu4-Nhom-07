@@ -258,6 +258,7 @@ public class CustomerForm extends javax.swing.JFrame {
         				CustomerQuery.delete(id);
                 }
             	JOptionPane.showMessageDialog(this, "Xóa thành công");
+            	refresh();
             }catch (SQLException e) {
     			JOptionPane.showMessageDialog(this, "Xóa thất bại");			
     		}
@@ -265,6 +266,9 @@ public class CustomerForm extends javax.swing.JFrame {
     }                                        
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {                                         
+    	refresh();
+    }                 
+    public void refresh() {
         try {
 			listC = CustomerQuery.getListCustomer(new Customer());
 			DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
@@ -277,7 +281,7 @@ public class CustomerForm extends javax.swing.JFrame {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-    }                                        
+    }
     private void search1ActionPerformed(java.awt.event.ActionEvent evt) {                                        
         Customer a = new Customer();
         a.setName(name1.getText());

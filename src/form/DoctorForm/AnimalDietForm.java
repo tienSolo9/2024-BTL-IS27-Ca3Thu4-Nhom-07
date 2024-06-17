@@ -197,6 +197,7 @@ public class AnimalDietForm extends javax.swing.JFrame {
         		int id = listAd.get(stt).getId();
 				AnimalDietQuery.delete(id, "id");
         		JOptionPane.showMessageDialog(this, "Xóa thành công");
+        		refesh();
 			} catch (SQLException e) {
 				JOptionPane.showMessageDialog(this, "Xóa thất bại");
 				e.printStackTrace();

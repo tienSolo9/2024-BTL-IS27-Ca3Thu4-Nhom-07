@@ -223,6 +223,7 @@ public class AnimalHealForm extends javax.swing.JFrame {
         try {
 			AnimalHealthQuery.delete(listAd.get(stt).getId(), "id");
     		JOptionPane.showMessageDialog(this, "Xóa thành công");
+    		refesh();
 		} catch (SQLException e) {
 			JOptionPane.showMessageDialog(this, "Xóa thất bại");
 

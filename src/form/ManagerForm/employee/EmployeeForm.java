@@ -119,7 +119,7 @@ public class EmployeeForm extends javax.swing.JFrame {
             new Object [][] {
             },
             new String [] {
-                "ID", "Tên", "Giới tính", "Ngày sinh", "Ngày vào làm", "Số điện thoại", "Ca làm", "Chức vụ", "Khu vực quản lí"
+                "ID", "Tên", "Giới tính", "Ngày sinh", "Ngày vào làm", "Số điện thoại", "Chức vụ", "Khu vực quản lí", "Lương"
             }
             
         ));
@@ -130,7 +130,7 @@ public class EmployeeForm extends javax.swing.JFrame {
 				List<Integer> ids = EmployeeEnclosureQuery.getByTypeId(x.getId(), "employeeid");
 				String areaManaged = EmployeeEnclosureQuery.combine(ids);
 				model.addRow(new Object[]{x.getId(), x.getName(), x.getGender(), x.getDateOfBirth(),
-						x.getDateOfJoining(), x.getPhone(), x.getShift(), x.getDesignation(), areaManaged});
+						x.getDateOfJoining(), x.getPhone(), x.getDesignation(), areaManaged, x.getSalary()});
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -276,6 +276,10 @@ public class EmployeeForm extends javax.swing.JFrame {
         l.setVisible(true);
     }                                        
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {                                         
+    	refresh();
+    }                                        
+
+    public void refresh() {
     	DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
     	((DefaultTableModel)jTable1.getModel()).setRowCount(0);
         try {
@@ -289,8 +293,7 @@ public class EmployeeForm extends javax.swing.JFrame {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-    }                                        
-
+    }
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {                                         
         EmployeeAddForm l = new EmployeeAddForm();
         l.setVisible(true);
@@ -317,6 +320,7 @@ public class EmployeeForm extends javax.swing.JFrame {
     			EmployeeEnclosureQuery.delete(id, "employeeid");
         		EmployeeQuery.delete(id);
             	JOptionPane.showMessageDialog(this, "Xóa thành công");
+            	refresh();
             }catch (SQLException e) {
     			JOptionPane.showMessageDialog(this, "Xóa thất bại");			
     		}
