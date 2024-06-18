@@ -333,7 +333,7 @@ public class AnimalForm extends javax.swing.JFrame {
 			AnimalQuery.add(a);
 			JOptionPane.showMessageDialog(this, "Thêm thành công");
 			
-            DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+            
             refresh();
 		} catch (Exception e) {
 			JOptionPane.showMessageDialog(this, "Thêm thất bại");

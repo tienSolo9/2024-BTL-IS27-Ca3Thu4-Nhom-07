@@ -288,7 +288,7 @@ public class EmployeeForm extends javax.swing.JFrame {
 				List<Integer> ids = EmployeeEnclosureQuery.getByTypeId(x.getId(), "employeeid");
 				String areaManaged = EmployeeEnclosureQuery.combine(ids);
 				model.addRow(new Object[]{x.getId(), x.getName(), x.getGender(), x.getDateOfBirth(),
-						x.getDateOfJoining(), x.getPhone(), x.getShift(), x.getDesignation(), areaManaged});
+						x.getDateOfJoining(), x.getPhone(), x.getDesignation(), areaManaged, x.getSalary()});
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();

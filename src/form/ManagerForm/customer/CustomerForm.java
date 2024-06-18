@@ -232,9 +232,10 @@ public class CustomerForm extends javax.swing.JFrame {
        	
         CustomerUpdateForm l = new CustomerUpdateForm();
         Customer c = listC.get(jTable1.getSelectedRow());
+        
         l.setText(c);
         l.setVisible(true);
-        this.dispose();
+        refresh();
     }                                        
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {                                         
@@ -301,7 +302,7 @@ public class CustomerForm extends javax.swing.JFrame {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-    }                                           
+    }            
     public JPanel getFrame() {
     	return jPanel1;
     }
